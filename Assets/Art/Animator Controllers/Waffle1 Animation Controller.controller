@@ -31,7 +31,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boolName: canMove
   status: 0
-  resetOnExit: 1
+  resetOnExit: 0
 --- !u!206 &206267410484456334
 BlendTree:
   m_ObjectHideFlags: 1
@@ -484,7 +484,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: Right Equipped Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -498,7 +498,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400004, guid: e8fa34a80c2d63843ac82e931aec29a9, type: 3}
+  m_Motion: {fileID: 7400020, guid: e8fa34a80c2d63843ac82e931aec29a9, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
