@@ -32,8 +32,6 @@ namespace SA {
         void GetInput() {
             vertical = Input.GetAxis("Vertical");
             horizontal = Input.GetAxis("Horizontal");
-            //Debug.Log(vertical);
-            //Debug.Log(horizontal);
         }
 
 

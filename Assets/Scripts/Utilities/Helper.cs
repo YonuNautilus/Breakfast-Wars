@@ -14,6 +14,8 @@ namespace SA {
 
         public int weaponType;
 
+        public bool enableRootMotion;
+
         Animator anim;
 
         void Start() {
@@ -21,6 +23,12 @@ namespace SA {
         }
 
         void Update() {
+            enableRootMotion = !anim.GetBool("canMove");
+            anim.applyRootMotion = enableRootMotion;
+
+            if (enableRootMotion)
+                return;
+
             anim.SetInteger("weaponType", weaponType);
 
             if (playAnim) {
@@ -37,6 +45,10 @@ namespace SA {
 
                 vertical = 0;
                 anim.CrossFade(targetAnim, 0.2f);
+
+                //anim.SetBool("canMove", false);
+                //enableRootMotion = true;
+
                 playAnim = false;
             }
             anim.SetFloat("vertical", vertical);

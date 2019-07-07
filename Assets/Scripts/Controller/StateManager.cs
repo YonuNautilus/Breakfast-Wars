@@ -4,12 +4,24 @@ using UnityEngine;
 
 namespace SA {
     public class StateManager : MonoBehaviour {
+        [Header("Init")]
+        public GameObject activeModel;
+
+        [Header("Inputs")]
         public float vertical;
         public float horizontal;
         public float moveAmount;
         public Vector3 moveDir;
 
-        public GameObject activeModel;
+        [Header("Stats")]
+        public float moveSpeed = 5;
+        public float runSpeed = 7.5f;
+        public float rotateSpeed = 5;
+
+        [Header("States")]
+        public bool run;
+
+
         [HideInInspector]
         public Animator anim;
         [HideInInspector]
@@ -20,6 +32,9 @@ namespace SA {
         public void Init() {
             SetupAnimator();
             rb = GetComponent<Rigidbody>();
+            rb.angularDrag = 999;
+            rb.drag = 4;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         void SetupAnimator() {
@@ -42,8 +57,29 @@ namespace SA {
         public void FixedTick(float d) {
             delta = d;
 
-            rb.velocity = moveDir;
-            Debug.Log(moveDir);
+            rb.drag = (moveAmount > 0) ? 0 : 4;
+
+            float targetSpeed = moveSpeed;
+            if (run)
+                targetSpeed = runSpeed;
+
+            rb.velocity = moveDir * (targetSpeed * moveAmount);
+
+            Vector3 targetDir = moveDir;
+            targetDir.y = 0;
+            if (targetDir == Vector3.zero)
+                targetDir = transform.forward;
+
+            Quaternion tr = Quaternion.LookRotation(targetDir);
+            Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
+            transform.rotation = targetRotation;
+
+            HandleMovementAnimations();
+        }
+
+        void HandleMovementAnimations() {
+            anim.SetFloat("vertical", moveAmount, 0.4f, delta);
+
         }
     }
 }
