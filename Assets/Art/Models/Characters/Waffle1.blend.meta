@@ -148,6 +148,14 @@ ModelImporter:
     7400016: Right_Hand_Swing_Back
     7400018: Right_Hand_Swing_Charge
     7400020: Right_Hand_Equipped_Idle
+    7400022: In Air
+    7400024: Land
+    7400026: Right_Hand_Grab
+    7400028: Right_Hand_Grab_Full_Body
+    7400030: Left_Arm_Poke
+    7400032: Walk
+    7400034: Backwards_Walk
+    7400036: Sprint
     9500000: //RootNode
     13700000: Waffle
     2186277476908879412: ImportLogs
@@ -166,27 +174,61 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Idle' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'upLeg_R' has scale animation that will be discarded.\n\t'foot_R'
-      has scale animation that will be discarded.\n\nClip 'Jump' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'lowLeg_L' has scale animation
-      that will be discarded.\n\t'upLeg_R' has scale animation that will be discarded.\n\t'foot_R'
-      has scale animation that will be discarded.\n\nClip 'Jump_Charge' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'upLeg_R' has scale animation
-      that will be discarded.\n\t'foot_R' has scale animation that will be discarded.\n\nClip
-      'Right_Hand_Equipped_Idle' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'upLeg_R'
+    animationImportWarnings: "\nClip '_DONT_USE_' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'foot_L' has scale animation that will be discarded.\n\nClip
+      'Idle' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'upLeg_R'
       has scale animation that will be discarded.\n\t'foot_R' has scale animation
-      that will be discarded.\n\nClip 'Right_Hand_Swing' has import animation warnings
+      that will be discarded.\n\nClip 'In_AIr' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'foot_L' has scale animation that will be discarded.\n\t'upLeg_R'
+      has scale animation that will be discarded.\n\t'foot_R' has scale animation
+      that will be discarded.\n\nClip 'Jump' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'lowLeg_L' has scale animation that will be discarded.\n\t'upLeg_R'
+      has scale animation that will be discarded.\n\t'foot_R' has scale animation
+      that will be discarded.\n\nClip 'Jump_Charge' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
       to improve retargeting quality.\n\t'upLeg_R' has scale animation that will be
-      discarded.\n\t'foot_R' has scale animation that will be discarded.\n\nClip 'Run'
+      discarded.\n\t'foot_R' has scale animation that will be discarded.\n\nClip 'Left_Arm_Poke'
       has import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'foot_L' has scale
-      animation that will be discarded.\n"
+      translation DOF on avatar to improve retargeting quality.\n\t'upLeg_R' has scale
+      animation that will be discarded.\n\t'foot_R' has scale animation that will
+      be discarded.\n\nClip 'Right_Hand_Equipped_Idle' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'upLeg_R' has scale animation that will be
+      discarded.\n\t'foot_R' has scale animation that will be discarded.\n\nClip 'Right_Hand_Grab'
+      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'upLeg_R' has scale
+      animation that will be discarded.\n\t'foot_R' has scale animation that will
+      be discarded.\n\t'mid1_R' has translation animation that will be discarded.\n\t'ring1_R'
+      has translation animation that will be discarded.\n\t'index1_R' has translation
+      animation that will be discarded.\n\t'pinky1_R' has translation animation that
+      will be discarded.\n\t'thumb1_R' has translation animation that will be discarded.\n\nClip
+      'Right_Hand_Grab_Full_Body' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'upLeg_R'
+      has scale animation that will be discarded.\n\t'foot_R' has scale animation
+      that will be discarded.\n\t'mid1_R' has translation animation that will be discarded.\n\t'ring1_R'
+      has translation animation that will be discarded.\n\t'index1_R' has translation
+      animation that will be discarded.\n\t'pinky1_R' has translation animation that
+      will be discarded.\n\t'thumb1_R' has translation animation that will be discarded.\n\nClip
+      'Right_Hand_Swing' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'upLeg_R'
+      has scale animation that will be discarded.\n\t'foot_R' has scale animation
+      that will be discarded.\n\nClip 'Run' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'foot_L' has scale animation that will be discarded.\n\nClip
+      'Backwards_Walk' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'upLeg_L'
+      has scale animation that will be discarded.\n\t'lowLeg_L' has scale animation
+      that will be discarded.\n\t'foot_L' has scale animation that will be discarded.\n\t'upLeg_R'
+      has scale animation that will be discarded.\n\t'foot_R' has scale animation
+      that will be discarded.\n\nClip 'Walk' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'upLeg_R' has scale animation that will be discarded.\n\t'lowLeg_R'
+      has scale animation that will be discarded.\n\t'foot_R' has scale animation
+      that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -297,7 +339,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -440,6 +482,230 @@ ModelImporter:
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: In Air
+      takeName: Jump
+      firstFrame: 7
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Land
+      takeName: Jump
+      firstFrame: 13
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Right_Hand_Grab
+      takeName: Right_Hand_Grab
+      firstFrame: 1
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Right_Hand_Grab_Full_Body
+      takeName: Right_Hand_Grab_Full_Body
+      firstFrame: 1
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Left_Arm_Poke
+      takeName: Left_Arm_Poke
+      firstFrame: 1
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 00000000000000000000000000000000000000000100000000000000010000000000000000000000000000000100000000000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Backwards_Walk
+      takeName: Backwards_Walk
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Sprint
+      takeName: Sprint
+      firstFrame: 1
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
