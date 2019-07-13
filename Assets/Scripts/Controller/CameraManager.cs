@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace SA {
     public class CameraManager : MonoBehaviour {
+        public static CameraManager singleton;
+
         public bool lockon;
         public bool controllerEnabled;
         public float followSpeed = 9;
@@ -56,7 +58,8 @@ namespace SA {
         void FollowTarget(float d) {
             float speed = d * followSpeed;
             Vector3 targetPosition = Vector3.Lerp(transform.position, target.position, d);
-            transform.position = targetPosition;
+            //transform.position = targetPosition;
+            transform.position = target.position;
         }
 
         void HandleRotations(float d, float v, float h, float targetSpeed) {
@@ -80,8 +83,6 @@ namespace SA {
 
             pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
         }
-
-        public static CameraManager singleton;
         void Awake() {
             singleton = this;
         }

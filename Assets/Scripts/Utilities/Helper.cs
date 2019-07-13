@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace SA {
     public class Helper : MonoBehaviour {
-        [Range(0, 1)]
+        [Range(-1, 1)]
         public float vertical;
+        [Range(-1, 1)]
+        public float horizontal;
 
         public string animName;
         public bool playAnim;
@@ -18,7 +20,9 @@ namespace SA {
         public bool pickupWeapon;
         public bool poke;
         public bool interacting;
-        public int weaponType;
+        public bool lockon;
+
+        public StateManager.WeaponType weaponType;
 
         public bool enableRootMotion;
 
@@ -33,6 +37,12 @@ namespace SA {
             anim.applyRootMotion = enableRootMotion;
 
             interacting = anim.GetBool("interacting");
+
+            if (!lockon) {
+                horizontal = 0;
+                vertical = Mathf.Clamp01(vertical);
+            }
+            anim.SetBool("lockon", lockon);
 
             if (enableRootMotion)
                 return;
@@ -62,18 +72,22 @@ namespace SA {
                 doJump = false;
             }
 
-            anim.SetInteger("weaponType", weaponType);
+            anim.SetInteger("weaponType", (int)weaponType);
 
             if (playAnim) {
                 string targetAnim = "";
                 switch (weaponType) {
-                    case 0:
-                        //targetAnim = jumpAction;
+                    case StateManager.WeaponType.UNARMED:
+                        targetAnim = jumpAction;
                         vertical = 0;
                         break;
-                    case 1:
+                    case StateManager.WeaponType.ONEHANDED:
                         int r = Random.Range(0, oh_attacks.Length);
                         targetAnim = oh_attacks[r];
+                        break;
+                    case StateManager.WeaponType.TWOHANDED:
+                        int l = Random.Range(0, oh_attacks.Length);
+                        targetAnim = oh_attacks[l];
                         break;
                 }
 
@@ -84,8 +98,8 @@ namespace SA {
 
                 playAnim = false;
             }
-            anim.SetFloat("vertical", vertical);
-
+            //anim.SetFloat("vertical", vertical);
+            anim.SetFloat("horizontal", horizontal);
             doJump = false;
         }
     }
