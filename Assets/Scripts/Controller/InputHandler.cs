@@ -20,6 +20,10 @@ namespace SA {
         public bool leftAxis_down;
         public bool rightAxis_down;
 
+        float a_timer;  //b_timer for running ramp-up
+        float rt_timer;
+        float lt_timer;
+
         float delta;
 
         StateManager states;
@@ -30,7 +34,7 @@ namespace SA {
             states.Init();
 
             camManager = CameraManager.singleton;
-            camManager.Init(this.transform);
+            camManager.Init(states);
         }
 
         void FixedUpdate() {
@@ -45,6 +49,7 @@ namespace SA {
         void Update() {
             delta = Time.deltaTime;
             states.Tick(delta);
+            ResetInputsAndStates();
         }
         
 
@@ -70,6 +75,10 @@ namespace SA {
 
             rightAxis_down = Input.GetButtonUp("R3");
             leftAxis_down = Input.GetButtonUp("L3");
+
+            if (a_input) {
+                a_timer += delta;
+            }
         }
 
 
@@ -83,14 +92,13 @@ namespace SA {
             float m = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
             states.moveAmount = Mathf.Clamp01(m);
 
-            states.rollInput = a_input;
+            if (a_input && a_timer > 0.5f) {
+                states.run = (states.moveAmount > 0);
+            }
 
-            if (b_input) {
-                //states.run = (states.moveAmount > 0);
-            }
-            else {
-                //states.run = false;
-            }
+            if (a_input == false && a_timer > 0 && a_timer < 0.5f)
+                states.rollInput = true;
+            
 
             states.b = b_input;
             states.a = a_input;
@@ -112,10 +120,22 @@ namespace SA {
                 if (states.lockOnTarget == null)
                     states.lockon = false;
 
-                camManager.lockonTarget = states.lockOnTarget.transform;
+                camManager.lockonTarget = states.lockOnTarget;
+                states.lockOnTransform = camManager.lockonTransform;
                 camManager.lockon = states.lockon;
             }
             //states.FixedTick(Time.deltaTime);
+        }
+
+        void ResetInputsAndStates() {
+            if (a_input == false)
+                a_timer = 0;
+
+            if (states.rollInput)
+                states.rollInput = false;
+
+            if (states.run)
+                states.run = false;
         }
     }
 }

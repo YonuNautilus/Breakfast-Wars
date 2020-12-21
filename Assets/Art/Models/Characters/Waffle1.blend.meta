@@ -495,7 +495,12 @@ ModelImporter:
   - first:
       74: 5750198890193390031
     second: Cartwheel_Left
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Waffle Cycles Material
+    second: {fileID: 2100000, guid: 96378d6f0a1dd0e409414924302d084f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -99,7 +99,8 @@ public class PlayerMovement : MonoBehaviour
         }
         try {
             return loc /= num;
-        }catch(Exception ex){
+        } catch(Exception ex) {
+            Debug.Log(ex.Message);
             return new Vector3(0, 0, 0);
         }
     }

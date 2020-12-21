@@ -41,6 +41,8 @@ namespace SA {
 
         [Header("Other")]
         public EnemyTarget lockOnTarget;
+        public Transform lockOnTransform;
+        public AnimationCurve roll_curve;
 
         [HideInInspector]
         public Animator anim;
@@ -126,7 +128,8 @@ namespace SA {
             if (!canMove)
                 return;
 
-            a_hook.rm_multiplier = 1;
+            //a_hook.rm_multiplier = 1;
+            a_hook.CloseRoll();
             HandleRolls();
 
             anim.applyRootMotion = false;
@@ -141,7 +144,10 @@ namespace SA {
             if (run)
                 lockon = false;
 
-            Vector3 targetDir = (lockon == false) ? moveDir : lockOnTarget.transform.position - transform.position;
+            Vector3 targetDir = (lockon == false) ? moveDir :
+                (lockOnTransform != null) ? lockOnTransform.transform.position - transform.position :
+                    moveDir;
+
             targetDir.y = 0;
             if (targetDir == Vector3.zero)
                 targetDir = transform.forward;
@@ -211,6 +217,11 @@ namespace SA {
                     moveDir = transform.forward;
                 Quaternion targetRot = Quaternion.LookRotation(moveDir);
                 transform.rotation = targetRot;
+                a_hook.InitForRoll();
+                a_hook.rm_multiplier = rollSpeed;
+            }
+            else {
+                a_hook.rm_multiplier = 10f;
             }
 
             a_hook.rm_multiplier = rollSpeed;
@@ -221,7 +232,6 @@ namespace SA {
             canMove = false;
             inAction = true;
             anim.CrossFade("Rolls", 0.2f);
-
         }
 
         void HandleMovementAnimations() {

@@ -30,7 +30,12 @@ ModelImporter:
   - first:
       41386430: 2186277476908879412
     second: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: d24e39a2197cf9c48a5bdf633b0a4405, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
