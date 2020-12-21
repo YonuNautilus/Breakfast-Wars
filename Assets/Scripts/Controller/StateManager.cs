@@ -20,6 +20,7 @@ namespace SA {
         public float rotateSpeed = 5;
         public float toGround = 0.75f;
         public float thruGround = 0.1f;
+        public float rollSpeed = 1.0f;
 
 
         [Header("States")]
@@ -29,6 +30,7 @@ namespace SA {
         public bool inAction;
         public bool canMove;
         public bool isTwoHanded;
+        public bool rollInput;
         public WeaponType wt = WeaponType.UNARMED;
         public enum WeaponType {
             UNARMED = 0,
@@ -37,12 +39,19 @@ namespace SA {
 
         }
 
+        [Header("Other")]
+        public EnemyTarget lockOnTarget;
+
         [HideInInspector]
         public Animator anim;
         [HideInInspector]
         public Rigidbody rigbod;
         [HideInInspector]
         public AnimatorHook a_hook;
+        [HideInInspector]
+        public ActionManager actionManager;
+        [HideInInspector]
+        public InventoryManager invManager;
 
         [HideInInspector]
         private Vector3[] origins = new Vector3[5];
@@ -64,6 +73,9 @@ namespace SA {
             rigbod.angularDrag = 999;
             rigbod.drag = 4;
             rigbod.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            //invManager = GetComponent<InventoryManager>();
+            //invManager.Init();
 
             a_hook = activeModel.AddComponent<AnimatorHook>();
             a_hook.Init(this);
@@ -114,6 +126,9 @@ namespace SA {
             if (!canMove)
                 return;
 
+            a_hook.rm_multiplier = 1;
+            HandleRolls();
+
             anim.applyRootMotion = false;
 
             rigbod.drag = (moveAmount > 0 || !onGround) ? 0 : 4;
@@ -126,18 +141,21 @@ namespace SA {
             if (run)
                 lockon = false;
 
-            if (!lockon) {
-                Vector3 targetDir = moveDir;
-                targetDir.y = 0;
-                if (targetDir == Vector3.zero)
-                    targetDir = transform.forward;
+            Vector3 targetDir = (lockon == false) ? moveDir : lockOnTarget.transform.position - transform.position;
+            targetDir.y = 0;
+            if (targetDir == Vector3.zero)
+                targetDir = transform.forward;
 
-                Quaternion tr = Quaternion.LookRotation(targetDir);
-                Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
-                transform.rotation = targetRotation;
-            }
+            Quaternion tr = Quaternion.LookRotation(targetDir);
+            Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
+            transform.rotation = targetRotation;
 
-            HandleMovementAnimations();
+            anim.SetBool("lockon", lockon);
+
+            if (lockon == false)
+                HandleMovementAnimations();
+            else
+                HandleLockOnAnimations(moveDir);
         }
 
         public void DetectAction() {
@@ -149,6 +167,10 @@ namespace SA {
 
             if (rb) targetAnim = "Right_Hand_Swing_Charge";
             if (rt) targetAnim = "Right_Hand_Swing_Pre";
+
+            //Action slot = actionManager.GetActionSlot(this);
+            //if (slot == null) return;
+            //targetAnim = slot.targetAnimation;
 
             if (string.IsNullOrEmpty(targetAnim)) return;
 
@@ -164,10 +186,57 @@ namespace SA {
             anim.SetBool("onGround", onGround);
         }
 
+        void HandleRolls() {
+            if (!rollInput) return;
+
+            float v = vertical;
+            float h = horizontal;
+
+            v = (moveAmount > 0.3f) ? 1 : 0;
+            h = 0;
+
+            //if (!lockon) {
+            //    v = (moveAmount > 0.3f)? 1 : 0;
+            //    h = 0;
+            //}
+            //else {
+            //    if (Mathf.Abs(v) < 0.3f)
+            //        v = 0;
+            //    if (Mathf.Abs(h) < 0.3f)
+            //        h = 0;
+            //}
+
+            if (v != 0) {
+                if (moveDir == Vector3.zero)
+                    moveDir = transform.forward;
+                Quaternion targetRot = Quaternion.LookRotation(moveDir);
+                transform.rotation = targetRot;
+            }
+
+            a_hook.rm_multiplier = rollSpeed;
+
+            anim.SetFloat("vertical", v);
+            anim.SetFloat("horizontal", h);
+
+            canMove = false;
+            inAction = true;
+            anim.CrossFade("Rolls", 0.2f);
+
+        }
+
         void HandleMovementAnimations() {
             anim.SetBool("run", run);
             anim.SetFloat("vertical", moveAmount, 0.4f, delta);
 
+        }
+
+        void HandleLockOnAnimations(Vector3 moveDir) {
+            Vector3 relativeDir = transform.InverseTransformDirection(moveDir);
+            float h = relativeDir.x;
+            float v = relativeDir.z;
+
+            anim.SetFloat("vertical", v, 0.4f, delta);
+            anim.SetFloat("horizontal", h, 0.4f, delta);
         }
 
         public bool OnGround() {

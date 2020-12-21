@@ -103,12 +103,12 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: B
-    descriptiveName: 
+    descriptiveName: NinB, XboxA, PSX, Buttom
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: left shift
     altNegativeButton: 
-    altPositiveButton: mouse 2
+    altPositiveButton: joystick button 1
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -119,12 +119,12 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: X
-    descriptiveName: 
+    descriptiveName: NinX, XboxY, PSTri, Top
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: x
+    positiveButton: r
     altNegativeButton: 
-    altPositiveButton: mouse 2
+    altPositiveButton: joystick button 3
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -135,12 +135,12 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Y
-    descriptiveName: 
+    descriptiveName: NinY, XboxX, PSSqr, Left
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: y
+    positiveButton: e
     altNegativeButton: 
-    altPositiveButton: mouse 2
+    altPositiveButton: joystick button 0
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -151,12 +151,44 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: A
-    descriptiveName: 
+    descriptiveName: NInA, XboxB, PSCir, Right
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: c
+    positiveButton: q
     altNegativeButton: 
-    altPositiveButton: mouse 2
+    altPositiveButton: joystick button 2
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: L3
+    descriptiveName: Left Stick Press
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: h
+    altNegativeButton: 
+    altPositiveButton: joystick button 10
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: R3
+    descriptiveName: Right Stick Press
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: g
+    altNegativeButton: 
+    altPositiveButton: joystick button 11
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -302,12 +334,12 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.19
+    dead: -0.81
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
-    axis: 9
+    axis: 4
     joyNum: 0
   - serializedVersion: 3
     m_Name: LT
@@ -321,9 +353,9 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
-    axis: 8
+    axis: 3
     joyNum: 0
   - serializedVersion: 3
     m_Name: RB
@@ -445,70 +477,6 @@ InputManager:
     positiveButton: escape
     altNegativeButton: 
     altPositiveButton: joystick button 1
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: B
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: escape
-    altNegativeButton: 
-    altPositiveButton: joystick button 1
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: X
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: escape
-    altNegativeButton: 
-    altPositiveButton: joystick button 2
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Y
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: escape
-    altNegativeButton: 
-    altPositiveButton: joystick button 3
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: A
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: escape
-    altNegativeButton: 
-    altPositiveButton: joystick button 0
     gravity: 1000
     dead: 0.001
     sensitivity: 1000

@@ -4,23 +4,27 @@ using UnityEngine;
 
 namespace SA {
     public class InputHandler : MonoBehaviour {
-        float vertical;
-        float horizontal;
-        bool a_input;
-        bool b_input;
-        bool x_input;
-        bool y_input;
-        bool rb_input;
-        bool lb_input;
-        bool rt_input;
-        float rt_axis;
-        bool lt_input;
-        float lt_axis;
+        public float vertical;
+        public float horizontal;
+        public bool a_input;
+        public bool b_input;
+        public bool x_input;
+        public bool y_input;
+        public bool rb_input;
+        public bool lb_input;
+        public bool rt_input;
+        public float rt_axis;
+        public bool lt_input;
+        public float lt_axis;
+
+        public bool leftAxis_down;
+        public bool rightAxis_down;
 
         float delta;
 
         StateManager states;
         CameraManager camManager;
+
         void Start() {
             states = GetComponent<StateManager>();
             states.Init();
@@ -57,12 +61,15 @@ namespace SA {
             rt_input = Input.GetButton("RT");
             rt_axis = Input.GetAxis("RT");
             rb_input = Input.GetButton("RB");
-            if (rt_axis != 0) rt_input = true;
+            if (rt_axis != -1) rt_input = true;
 
             lt_input = Input.GetButton("LT");
             lt_axis = Input.GetAxis("LT");
             lb_input = Input.GetButton("LB");
-            if (lt_axis != 0) lt_input = true;
+            if (lt_axis != -1) lt_input = true;
+
+            rightAxis_down = Input.GetButtonUp("R3");
+            leftAxis_down = Input.GetButtonUp("L3");
         }
 
 
@@ -76,11 +83,13 @@ namespace SA {
             float m = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
             states.moveAmount = Mathf.Clamp01(m);
 
+            states.rollInput = a_input;
+
             if (b_input) {
-                states.run = (states.moveAmount > 0);
+                //states.run = (states.moveAmount > 0);
             }
             else {
-                states.run = false;
+                //states.run = false;
             }
 
             states.b = b_input;
@@ -98,6 +107,14 @@ namespace SA {
                 }
             }
 
+            if (rightAxis_down) {
+                states.lockon = !states.lockon;
+                if (states.lockOnTarget == null)
+                    states.lockon = false;
+
+                camManager.lockonTarget = states.lockOnTarget.transform;
+                camManager.lockon = states.lockon;
+            }
             //states.FixedTick(Time.deltaTime);
         }
     }
