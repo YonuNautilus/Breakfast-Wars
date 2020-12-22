@@ -7,6 +7,7 @@ namespace SA{
     {
         public Weapon curWeapon;
         public void Init() {
+
         }
     }
 

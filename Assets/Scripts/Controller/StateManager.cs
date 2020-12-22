@@ -76,8 +76,11 @@ namespace SA {
             rigbod.drag = 4;
             rigbod.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
-            //invManager = GetComponent<InventoryManager>();
-            //invManager.Init();
+            invManager = GetComponent<InventoryManager>();
+            invManager.Init();
+
+            actionManager = GetComponent<ActionManager>();
+            actionManager.Init(this);
 
             a_hook = activeModel.AddComponent<AnimatorHook>();
             a_hook.Init(this);
@@ -171,12 +174,12 @@ namespace SA {
 
             string targetAnim = null;
 
-            if (rb) targetAnim = "Right_Hand_Swing_Charge";
-            if (rt) targetAnim = "Right_Hand_Swing_Pre";
+            //if (rb) targetAnim = "Right_Hand_Swing_Charge";
+            //if (rt) targetAnim = "Right_Hand_Swing_Pre";
 
-            //Action slot = actionManager.GetActionSlot(this);
-            //if (slot == null) return;
-            //targetAnim = slot.targetAnimation;
+            Action slot = actionManager.GetActionSlot(this);
+            if (slot == null) return;
+            targetAnim = slot.targetAnimation;
 
             if (string.IsNullOrEmpty(targetAnim)) return;
 

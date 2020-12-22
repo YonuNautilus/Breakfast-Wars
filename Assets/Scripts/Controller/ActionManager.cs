@@ -53,8 +53,8 @@ namespace SA {
         }
 
         public Action GetActionSlot(StateManager sm) {
-            ActionInput a_input = GetActionInput(sm);
-            return GetAction(a_input);
+            ActionInput act_in = GetActionInput(sm);
+            return GetAction(act_in);
         }
 
         Action GetAction(ActionInput inp) {

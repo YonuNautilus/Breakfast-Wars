@@ -314,6 +314,8 @@ GameObject:
   - component: {fileID: 321396702}
   - component: {fileID: 321396700}
   - component: {fileID: 321396699}
+  - component: {fileID: 321396703}
+  - component: {fileID: 321396704}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -376,6 +378,7 @@ MonoBehaviour:
   rollInput: 0
   wt: 0
   lockOnTarget: {fileID: 831688438}
+  lockOnTransform: {fileID: 0}
   roll_curve:
     serializedVersion: 2
     m_Curve:
@@ -491,6 +494,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &321396703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321396697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b64a76ed6abbc4458d8bf75035e75d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionSlots:
+  - input: 0
+    targetAnimation: 
+  - input: 2
+    targetAnimation: 
+  - input: 1
+    targetAnimation: 
+  - input: 3
+    targetAnimation: 
+  consumableItem:
+    targetAnimation: 
+    item_id: 
+--- !u!114 &321396704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321396697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de19c2e9b418e60428f9276aad6e1663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curWeapon:
+    actions:
+    - input: 0
+      targetAnimation: Right_Hand_Swing
+    two_handedActions:
+    - input: 0
+      targetAnimation: Right_Hand_Grab
 --- !u!1001 &435937290
 PrefabInstance:
   m_ObjectHideFlags: 0
